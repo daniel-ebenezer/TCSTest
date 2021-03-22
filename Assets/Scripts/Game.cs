@@ -12,7 +12,7 @@ public class Game : MonoBehaviour
     public GameObject startPath;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.Return))
         {
             startingObject.transform.Rotate(new Vector3(5, 0, 0));
             startText.SetActive(false);

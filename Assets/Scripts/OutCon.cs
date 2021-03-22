@@ -10,7 +10,9 @@ public class OutCon : MonoBehaviour
     {
         if(isVisible==false)
         {
-            print("gameover");
+            //print("gameover");
+            UIManager.instance.gameOverPanel.SetActive(true);
+            Time.timeScale = 0;
         }
     }
     private void OnBecameInvisible()

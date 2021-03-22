@@ -10,6 +10,7 @@ TagManager:
   - LastBlock
   - OutCol
   - SphereEnd
+  - GameOver
   layers:
   - Default
   - TransparentFX

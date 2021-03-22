@@ -10,5 +10,17 @@ public class CoinMove : MonoBehaviour
         {
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 7);
         }
+
+        if (collision.gameObject.CompareTag("GameOver"))
+        {
+            UIManager.instance.endScreenPanel.SetActive(true);
+
+        }
+
+        if(collision.gameObject.CompareTag("Block"))
+        {
+            UIManager.instance.gameOverPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }

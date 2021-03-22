@@ -16,6 +16,8 @@ public class MovingObject : MonoBehaviour , IPointerDownHandler
     bool canMove=true;
 
     bool inArea;
+
+    public bool isInFloor;
     void Start()
     {
         rightTrans.x = transform.position.x+8;
@@ -55,15 +57,19 @@ public class MovingObject : MonoBehaviour , IPointerDownHandler
         }
         else
         {
-            if (inArea)
+            if (!isInFloor)
             {
-                print("win");
-                enabled = false;
+                if (inArea)
+                {
+                    enabled = false;
 
-            }
-            else
-            {
-                print("lose");
+                }
+                else
+                {
+                    //print("lose");
+                    UIManager.instance.gameOverPanel.SetActive(true);
+                    Time.timeScale = 0;
+                }
             }
         }
         
