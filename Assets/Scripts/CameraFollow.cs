@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviour
         {
             Vector3 mousePos = Input.mousePosition;
 
-           // print(mousePos);
+            print(mousePos);
         }
     }
     public void LateUpdate()

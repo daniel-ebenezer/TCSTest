@@ -10,16 +10,16 @@ public class MovingObject : MonoBehaviour , IPointerDownHandler
     Vector3 leftTrans;
     Vector3 rightTrans;
 
-    bool isRight = true;
-    bool isLeft;
+    public bool isRight;
+    public bool isLeft;
 
     bool canMove=true;
     void Start()
     {
-        rightTrans.x = transform.position.x+5;
+        rightTrans.x = transform.position.x+8;
         rightTrans.y = transform.position.y;
         rightTrans.z = transform.position.z;
-        leftTrans.x = transform.position.x-5;
+        leftTrans.x = transform.position.x-8;
         leftTrans.y = transform.position.y;
         leftTrans.z = transform.position.z;
 
