@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveButton : MonoBehaviour
+public class LastObject : MonoBehaviour
 {
     public GameObject sphere;
+    public bool canSwitchTarget=false;
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Block"))
+        if(collision.gameObject.CompareTag("Sphere"))
         {
-            sphere.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 5);
+            canSwitchTarget = true;
         }
     }
 }

@@ -14,6 +14,8 @@ public class MovingObject : MonoBehaviour , IPointerDownHandler
     public bool isLeft;
 
     bool canMove=true;
+
+    bool inArea;
     void Start()
     {
         rightTrans.x = transform.position.x+8;
@@ -22,7 +24,6 @@ public class MovingObject : MonoBehaviour , IPointerDownHandler
         leftTrans.x = transform.position.x-8;
         leftTrans.y = transform.position.y;
         leftTrans.z = transform.position.z;
-
     }
 
     
@@ -52,14 +53,25 @@ public class MovingObject : MonoBehaviour , IPointerDownHandler
                 transform.Translate(moveDir * speed * Time.deltaTime);
             }
         }
+        else
+        {
+            if (inArea)
+            {
+                print("win");
+                enabled = false;
 
+            }
+            else
+            {
+                print("lose");
+            }
+        }
         
     }
 
+    
     public void OnPointerDown(PointerEventData eventData)
     {
-        print("1");
-
         canMove = false;
     }
 
@@ -70,4 +82,23 @@ public class MovingObject : MonoBehaviour , IPointerDownHandler
             canMove = false;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.gameObject.CompareTag("OutCol"))
+        {
+            inArea = true;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("OutCol"))
+        {
+            inArea = false;
+        }
+    }
+
 }

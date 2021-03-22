@@ -9,18 +9,16 @@ public class Path : MonoBehaviour
 
     public int currentWayPoint;
 
-    public float speed;
-    void Start()
-    {
-        
-    }
+    public float speed=4.5f;
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, wayPoints[currentWayPoint].position, speed * Time.deltaTime);
+
         
         if(Vector3.Distance(transform.position, wayPoints[currentWayPoint].position)<1f)
         {
             currentWayPoint++;
         }
+
     }
 }

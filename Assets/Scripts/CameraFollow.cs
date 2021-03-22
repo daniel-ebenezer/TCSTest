@@ -7,16 +7,6 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
 
     public float smoothSpeed;
-
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousePos = Input.mousePosition;
-
-            print(mousePos);
-        }
-    }
     public void LateUpdate()
     {
         Vector3 desiredPos = target.position + offset;
@@ -24,9 +14,10 @@ public class CameraFollow : MonoBehaviour
         transform.position = smoothedPos;
 
         //transform.position = desiredPos;
-
-        transform.LookAt(target);
+            transform.LookAt(target);
+        
     }
+
 
     
 }
