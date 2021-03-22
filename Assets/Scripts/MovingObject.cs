@@ -95,7 +95,6 @@ public class MovingObject : MonoBehaviour , IPointerDownHandler
         if (other.gameObject.CompareTag("OutCol"))
         {
             inArea = true;
-
         }
     }
 
